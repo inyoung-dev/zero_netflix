@@ -1,0 +1,259 @@
+/* 전체 스타일 */
+html, body { overflow-x: hidden; }
+body { font-family: Arial, sans-serif; color: white; background-color: black; word-break: keep-all; 
+       background: url('../img/background-top.jpg'); margin: 0; padding: 0;}
+
+/* 어두운 오버레이 */
+.overlay { position: absolute; z-index: 1; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); }
+
+/* 헤더 */
+header { position: relative; z-index: 2;}
+
+/* 네비게이션 */
+.navbar { margin-left: 22rem; margin-top: 10px; }
+.logo img { width: 180px; height: 70px; }
+
+ /* 배경 이미지 */ 
+.main { height: 100vh; background: url('../img/background-top.jpg'); background-size: cover; background-position: center; }
+
+
+
+/* 로그인 컨테이너 영역 */
+.login-container { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; min-height: 90vh; }
+/* 로그인 박스 */
+.login-box { background: rgba(0, 0, 0, 0.75); padding: 60px;width: 320px; height: 600px; border-radius: 4px; }
+.login-box h1 { color: rgb(255, 255, 255); font-size: 2rem; font-weight: 700; text-align: start; user-select: text;}
+.id-box { position: relative; margin-top: 3rem; }
+#email-input { box-sizing: border-box; width: 322px; height: 50px; color: white; font-size: 15px; background-color: transparent;
+       border: 1px solid gray; border-radius: 5px; padding: 0 12px; margin-bottom: 10px; }
+#pw-input { box-sizing: border-box; width: 322px; height: 50px; color: white; font-size: 15px; background-color: transparent;
+       border: 1px solid gray; border-radius: 5px; padding: 0 12px; margin-bottom: 10px; } 
+.login-btn { box-sizing: border-box; width: 322px; height: 40px; border: 1px solid rgb(229,9,20); background-color: rgb(229,9,20);;  color: #fff; 
+       font-size: 16px; cursor: pointer; border-radius: 4px; margin-top: 4px;}
+.login-btn:hover{ border: 1px solid rgb(207, 8, 8); background-color: rgb(207, 8, 8); }
+.login-btn:focus{ border: 1px solid rgb(191, 8, 8); background-color: rgb(191, 8, 8); }
+/*id-box & pw-box 라벨*/
+.id-box, .pw-box { position: relative; }
+/*id_error & pw_error*/
+#id_error, #pw_error { font-size: 13px; color: red; margin-bottom: 10px;}
+/*pw 토글 버튼*/
+.toggle-password { display: none; position: absolute; top: 42%; right: 38px; transform: translateY(-50%); background: transparent; border: none; color: #fff; font-size: 14px; cursor: pointer; z-index: 3; }
+/* 라벨(기본 상태: 입력창 가운데) */
+.float-label { position: absolute; left: 16px; top: 40%; transform: translateY(-50%); color: rgba(255, 255, 255, 0.5); pointer-events: none;  /* 클릭 시 input에 포커스 */ transition: 0.2s ease all; font-size: 15px; }
+/* .filled 상태: 라벨을 적당히 위로 이동 */
+.id-box.filled .float-label,
+.pw-box.filled .float-label { top: 4px; transform: none; font-size: 12px; color: rgba(255, 255, 255, 0.8);}
+/* 로그인 박스 하단*/
+.or-text { margin: 20px 0px; color: rgba(128, 128, 128, 0.9); font-size: 1rem; font-weight: 400; text-align: center; }
+.loginCode-btn {box-sizing: border-box; width: 322px; height: 40px; border: 1px solid transparent; background-color: rgba(128, 128, 128, 0.4);  color: #fff; 
+       font-size: 16px; cursor: pointer; border-radius: 4px;}
+.loginCode-btn:hover { border: 1px solid transparent; background-color: rgba(128, 128, 128, 0.3); }
+.loginCode-btn:focus { border: 1px solid transparent; background-color: rgba(128, 128, 128, 0.2); }
+.search-pw { box-sizing: border-box; margin: 15px 0px; }
+.search-pw p{ color: rgb(255, 255, 255); text-align: center; text-decoration: underline; text-decoration-color: rgb(255, 255, 255); margin-top: 1.25rem;}
+.rename { font-size: 1rem; font-weight: 400; line-height: 1.5; display: flex; position: relative; flex-wrap: wrap; margin: 1.5rem 0; }
+.rename input { width: 1.125rem; margin-right: 10px;}
+.signUp {margin-bottom: 1rem;}
+.signUp p { color: rgba(255, 255, 255, 0.5); }
+.signUp a { color: rgb(255, 255, 255); text-decoration: none; }
+.signUp a:hover { text-decoration: underline; text-decoration-color: rgb(255, 255, 255); }
+.note { box-sizing: border-box; width: 322px; margin-top: 2rem; }
+.note p{ margin-block: 0px; margin: 10px 0px; padding: 0px; color: rgba(255, 255, 255, 0.4); font-size: 0.8125rem; font-weight: 400; text-align: start; user-select: text; }
+
+/* 로그인 코드 폼*/
+.login_code_form { display: none; }
+.code-box { display: flex; flex-direction: column; gap: 10px;  margin-bottom: 20px; }
+#code-email-input { box-sizing: border-box; width: 322px; height: 50px; color: white; font-size: 15px; background-color: transparent; border: 1px solid gray; border-radius: 5px; padding: 0 12px; }
+.code-note { color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; text-align: center; } 
+.loginCodeSubmit-btn { width: 322px; height: 40px; border: 1px solid red; background-color: #e50914; color: #fff; font-size: 16px; cursor: pointer; border-radius: 4px; }
+.loginCodeSubmit-btn:hover{ border: 1px solid rgb(207, 8, 8); background-color: rgb(207, 8, 8); }
+.loginCodeSubmit-btn:focus{ border: 1px solid rgb(191, 8, 8); background-color: rgb(191, 8, 8); }
+.usePw-btn { width: 322px; height: 40px; border: 1px solid transparent; background-color: rgba(128, 128, 128, 0.4); color: #fff; font-size: 16px; cursor: pointer; border-radius: 4px; }
+.userPw-btn:hover { border: 1px solid transparent; background-color: rgba(128, 128, 128, 0,3); }
+.userPw-btn:focus { border: 1px solid transparent; background-color: rgba(128, 128, 128, 0.2); }
+.search-pw2 { margin-top: 15px; } 
+.search-pw2 p { color: rgb(255, 255, 255); text-align: center; text-decoration: underline; text-decoration-color: rgb(255, 255, 255); margin-top: 1.25rem; }
+
+/* 푸터 영역 */
+.footer-container {width: 100%; padding: 0 360px; background-color: #161616; padding-top: 80px;}
+.footer-links ul {display: flex; flex-wrap: wrap; gap: 20px; padding: 0; margin: 0 0 30px;}
+.site-footer {font-size:16px; color:rgba(255, 255, 255, 0.7);}
+.footer-call { font-size:16px;}
+.footer-links {display:flex; align-items:flex-start; margin-top:30px;}
+.footer-links li {width:calc(100% / 5);}
+.footer-links li a {font-size:12px; color:rgba(255, 255, 255, 0.7);}
+.footer-lang {margin-bottom: 20px;}
+.footer-lang select {padding:12px 12px 12px 26px; 
+       background:#000; border:1px solid #333; color:rgba(255, 255, 255, 0.7);}
+.footer-info {padding-bottom: 5rem; font-size: 12px;}
+.footer-info p {line-height:1.3;}
+.footer-info p a {color:rgba(255, 255, 255, 0.7);}
+
+
+
+/* 반응형 */
+
+/*1024px ~ 601px*/
+@media (max-width: 1024px) and (min-width: 601px) {
+
+       /* 헤더 로고 위치 살짝 조정 (필요 시) */
+       .navbar {
+              margin-left: 1rem;
+              /* 예: 22rem -> 4rem */
+       }
+       .overlay {
+              height: 99%;
+       }
+
+       /* 로그인 박스: 중앙 정렬, 폭 약간 넓힘 */
+       .login-box {
+              width: 70%;
+              max-width: 500px;
+              margin: 40px auto;
+              /* 수직 40px, 좌우 auto */
+              height: auto;
+              /* 고정 600px 대신 내용에 맞춤 */
+              border-radius: 4px;
+              /* 둥근 모서리는 유지 */
+              padding: 40px 30px;
+       }
+
+       /* 입력창/버튼 100% 폭 */
+       #email-input,
+       #pw-input,
+       .login-btn,
+       .loginCode-btn,
+       .loginCodeSubmit-btn,
+       .usePw-btn {
+              width: 100%;
+              max-width: 100%;
+       }
+
+       /* 푸터: 좌우 패딩 축소, 링크는 왼쪽 정렬 */
+       .footer-container {
+              padding: 0 3rem;
+              text-align: left;
+              padding-top: 4rem;
+       }
+
+       .footer-links ul {
+              flex-direction: row;
+              /* 가로 배치 */
+              flex-wrap: wrap;
+              /* 화면 줄어들면 줄바꿈 */
+              justify-content: flex-start;
+              /* 왼쪽 정렬 */
+       }
+
+       .footer-links li {
+              width: auto;
+              /* 한 줄에 자연스럽게 */
+       }
+}
+
+/* 600px이하 (모바일) */
+@media (max-width: 600px) {
+/*오버레이 제거 (원하면 주석 해제)*/
+       .overlay {
+              display: none !important;
+       }
+       /* 헤더 로고 위치 살짝 조정 (필요 시) */
+       .navbar {
+              margin-left: 1rem;
+       }
+
+       /* 배경을 완전 검정 */
+       body {
+              background: #000 !important;
+       }
+
+       /* 로그인 컨테이너 전체 높이 활용 */
+       .login-container {
+              min-height: auto;
+              margin: 0;
+              padding: 0;
+              display: flex;
+              justify-content: center;
+              align-items: flex-start;
+              /* 위쪽부터 */
+       }
+
+       /* 로그인 박스: 화면 꽉 채우기, border-radius 제거 */
+       .login-box {
+              width: 100%;
+              max-width: 100%;
+              border-radius: 0;
+              margin: 0;
+              padding: 20px 20px 30px;
+              /* 아래쪽 약간만 여백 */
+              height: auto;
+       }
+
+       /* 입력창/버튼 100% 폭 */
+       #email-input,
+       #pw-input,
+       .login-btn,
+       .loginCode-btn,
+       .loginCodeSubmit-btn,
+       .usePw-btn {
+              width: 100%;
+              max-width: 100%;
+       }
+
+       /* 푸터: 위쪽 여백을 조금 두어 구분 */
+       footer.site-footer {
+              margin-top: 20px;
+       }
+
+       .footer-container {
+              padding: 20px;
+              text-align: left;
+              /* 왼쪽 정렬 */
+       }
+
+       /* “질문이 있으신가요?” 문구 */
+       .footer-call {
+              margin-bottom: 15px;
+       }
+
+
+
+       /* 언어 선택 */
+       .footer-lang {
+              margin-bottom: 15px;
+              text-align: left;
+       }
+
+       /* 회사 정보 (작게) */
+       .footer-info {
+              font-size: 12px;
+              line-height: 1.3;
+       }
+
+       .footer-info p {
+              margin: 3px 0;
+              text-align: left;
+       }
+       
+}
+
+@media (max-width: 600px) {
+       /* ... 이미 작성한 모바일용 스타일들 ... */
+     
+       /* 푸터 링크를 2열 x 3행으로 배치 */
+       .footer-links ul {
+         display: grid;
+         grid-template-columns: 1fr 1fr;  /* 2열 */
+         column-gap: 10px;               /* 열 간격 */
+         row-gap: 8px;                   /* 행 간격 */
+         justify-content: flex-start;    /* 왼쪽 정렬 (원하시면 center로 변경 가능) */
+         align-items: start;            
+         margin-bottom: 15px;            /* 아래 여백 */
+       }
+     
+       .footer-links li {
+         width: auto;        /* 한 칸에 자연스러운 폭 */
+         text-align: left;   /* 링크 텍스트 왼쪽 정렬 (원하시면 center 가능) */
+         padding-right: 10rem;
+       }
+     }
